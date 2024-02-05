@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             x:Class="StackingLine.MainPage"
+             xmlns:model="clr-namespace:StackingLine">
+    <ContentPage.BindingContext>
+        <model:ViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+
+            <chart:SfCartesianChart  Title="stacking line series" Margin="0,40,0,50" >
+                <chart:SfCartesianChart.XAxes>
+                    <chart:CategoryAxis PlotOffsetEnd="20" 
+                                        PlotOffsetStart="30"/>
+                </chart:SfCartesianChart.XAxes>
+
+                <chart:SfCartesianChart.YAxes>
+                    <chart:NumericalAxis Maximum="1700" />
+                </chart:SfCartesianChart.YAxes>
+
+                <chart:SfCartesianChart.TrackballBehavior>
+                    <chart:ChartTrackballBehavior/>
+                </chart:SfCartesianChart.TrackballBehavior>
+
+                <chart:SfCartesianChart.TooltipBehavior>
+                    <chart:ChartTooltipBehavior Background="LightGreen" FontSize="20"/>
+                </chart:SfCartesianChart.TooltipBehavior>
+                
+                
+                
+                <chart:StackingLineSeries ItemsSource="{Binding Data1}"             
+                               XBindingPath="HeroName"
+                               YBindingPath="PowerLevel"      
+                               Opacity="0.5" 
+                               StrokeWidth="10"
+                               ShowDataLabels="False"
+                               EnableTooltip="True"
+                               ShowMarkers="True"
+                               >
+                    <chart:StackingLineSeries.MarkerSettings>
+                        <chart:ChartMarkerSettings Stroke="Purple" StrokeWidth="5"/>
+                    </chart:StackingLineSeries.MarkerSettings>
+                </chart:StackingLineSeries>
+                <chart:StackingLineSeries ItemsSource="{Binding Data2}"  StrokeDashArray="2,5"     Opacity="0.5"   StrokeWidth="10"  XBindingPath="HeroName" YBindingPath="PowerLevel" ShowDataLabels="True" Fill="Purple" />
+                <chart:StackingLineSeries ItemsSource="{Binding Data3}"    Opacity="0.5" EnableTooltip="True"  StrokeWidth="10"   XBindingPath="HeroName" YBindingPath="PowerLevel" ShowDataLabels="False" Fill="Green" />
+                <chart:StackingLineSeries ItemsSource="{Binding Data4}"    Opacity="0.5"   StrokeWidth="10"  XBindingPath="HeroName" YBindingPath="PowerLevel" ShowDataLabels="False" Fill="Red"  />
+                <chart:StackingLineSeries ItemsSource="{Binding Data5}"    Opacity="0.5" EnableTooltip="True"   StrokeWidth="10"   XBindingPath="HeroName" YBindingPath="PowerLevel" ShowDataLabels="True" Fill="Blue" />
+
+            </chart:SfCartesianChart>
+        </Grid>
+        <Grid Grid.Column="1">
+            <chart:SfCartesianChart  Title="stacking Line  100 series" Margin="0,40,0,50" >
+
+                <chart:SfCartesianChart.XAxes>
+                    <chart:CategoryAxis PlotOffsetEnd="20" PlotOffsetStart="30">
+
+                    </chart:CategoryAxis>
+                </chart:SfCartesianChart.XAxes>
+
+                <chart:SfCartesianChart.YAxes>
+                    <chart:NumericalAxis Maximum="110" >
+                    </chart:NumericalAxis>
+                </chart:SfCartesianChart.YAxes>
+
+                <chart:SfCartesianChart.TrackballBehavior>
+                    <chart:ChartTrackballBehavior/>
+                </chart:SfCartesianChart.TrackballBehavior>
+                <chart:StackingLine100Series ItemsSource="{Binding Data1}"             
+                               XBindingPath="HeroName"
+                               YBindingPath="PowerLevel"      
+                               Opacity="0.5" 
+                               StrokeWidth="10"
+                               ShowDataLabels="False"
+                              ShowMarkers="True"
+                               EnableTooltip="True"
+                               >
+                    <chart:StackingLineSeries.MarkerSettings>
+                        <chart:ChartMarkerSettings/>
+                    </chart:StackingLineSeries.MarkerSettings>
+                </chart:StackingLine100Series>
+                <chart:StackingLine100Series ItemsSource="{Binding Data2}"    Opacity="0.5"   StrokeWidth="10"  XBindingPath="HeroName" YBindingPath="PowerLevel" ShowDataLabels="True" Fill="Purple" />
+                <chart:StackingLine100Series ItemsSource="{Binding Data3}"    Opacity="0.5"   EnableTooltip="True"  StrokeWidth="10"   XBindingPath="HeroName" YBindingPath="PowerLevel" ShowDataLabels="False" Fill="Green" />
+                <chart:StackingLine100Series ItemsSource="{Binding Data4}"    Opacity="0.5"   StrokeWidth="10"  XBindingPath="HeroName" YBindingPath="PowerLevel" ShowDataLabels="False" Fill="Red"  />
+                <chart:StackingLine100Series ItemsSource="{Binding Data5}"    Opacity="0.5"   EnableTooltip="True"   StrokeWidth="10"   XBindingPath="HeroName" YBindingPath="PowerLevel" ShowDataLabels="True" Fill="Blue" />
+
+            </chart:SfCartesianChart>
+        </Grid>
+    </Grid>
+
+   
+       
+
+</ContentPage>
