@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             xmlns:model="clr-namespace:MaxZoom"
+             x:Class="MaxZoom.MainPage">
+
+    <ContentPage.BindingContext>
+        <model:ViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <chart:SfCartesianChart  Title="Maximum-Zoom-Level" Margin="0,10,0,0"  >
+
+                <chart:SfCartesianChart.XAxes>
+                    <chart:CategoryAxis EdgeLabelsDrawingMode="Fit" LabelPlacement="OnTicks" ShowTrackballLabel="True">
+                        <chart:CategoryAxis.TrackballLabelStyle >
+                            <chart:ChartLabelStyle   LabelFormat="Start" Background="Orange" ></chart:ChartLabelStyle>
+                        </chart:CategoryAxis.TrackballLabelStyle>
+                    </chart:CategoryAxis>
+                </chart:SfCartesianChart.XAxes>
+
+                <chart:SfCartesianChart.YAxes>
+                    <chart:NumericalAxis  ShowMinorGridLines="False" 
+                                          EdgeLabelsDrawingMode="Fit"
+                                          ShowMajorGridLines="False"
+                                          CrossesAt="2"
+                                          RenderNextToCrossingValue="False"
+                                          x:Name="check_factor"
+                                          >
+                    </chart:NumericalAxis>
+                </chart:SfCartesianChart.YAxes>
+
+                <chart:SfCartesianChart.Legend>
+                    <chart:ChartLegend Placement="Bottom" IsVisible="False" ToggleSeriesVisibility="True"/>
+                </chart:SfCartesianChart.Legend>
+
+                <chart:SfCartesianChart.TrackballBehavior>
+                    <chart:ChartTrackballBehavior DisplayMode="FloatAllPoints" ShowLine="True" ShowMarkers="True" >
+                        <chart:ChartTrackballBehavior.LabelStyle>
+                            <chart:ChartDataLabelStyle StrokeWidth="5" Background="Orange" FontSize="20" TextColor="White"/>
+                        </chart:ChartTrackballBehavior.LabelStyle>
+                        <chart:ChartTrackballBehavior.LineStyle>
+                            <chart:ChartLineStyle Stroke="Blue" />
+                        </chart:ChartTrackballBehavior.LineStyle>
+                        <chart:ChartTrackballBehavior.MarkerSettings>
+                            <chart:ChartMarkerSettings Stroke="Purple" />
+                        </chart:ChartTrackballBehavior.MarkerSettings>
+                    </chart:ChartTrackballBehavior>
+                </chart:SfCartesianChart.TrackballBehavior>
+                
+                <chart:SfCartesianChart.ZoomPanBehavior>
+                    <chart:ChartZoomPanBehavior EnableSelectionZooming="True"
+                                                EnablePanning="True"
+                                                EnableDoubleTap="True"
+                                                EnablePinchZooming="True"
+                                                SelectionRectFill="Blue"
+                                                x:Name="check_zoom"
+                                                />
+                </chart:SfCartesianChart.ZoomPanBehavior>
+                
+                <chart:SfCartesianChart.TooltipBehavior>
+                    <chart:ChartTooltipBehavior Background="Green"
+                                                TextColor="White"
+                                                Duration="2"
+                                                FontSize="50"
+                                                FontFamily="Script"
+                                                FontAttributes="Italic">
+                    </chart:ChartTooltipBehavior>
+                </chart:SfCartesianChart.TooltipBehavior>
+                
+                <chart:ColumnSeries ItemsSource="{Binding Data1}"             
+                                        XBindingPath="HeroName"
+                                        YBindingPath="PowerLevel"
+                                        x:Name="line1"                 
+                                        StrokeWidth="10"
+                                        ShowTrackballLabel="True"
+                                        ShowDataLabels="True"
+                                        EnableTooltip="True"/>
+
+                <chart:ColumnSeries ItemsSource="{Binding Data2}"
+                                        EnableAnimation="True"
+                                        ShowDataLabels="True"
+                                        EnableTooltip="True"
+                                        ShowTrackballLabel="False"
+                                        x:Name="line2"
+                                        StrokeWidth="10"
+                                        XBindingPath="HeroName"
+                                        YBindingPath="PowerLevel"/>
+
+                <chart:ColumnSeries  ItemsSource="{Binding Data3}"
+                                     ShowDataLabels="True"
+                                     EnableTooltip="True"
+                                     ShowTrackballLabel="False" 
+                                     x:Name="line3"
+                                     StrokeWidth="10"
+                                     XBindingPath="HeroName"
+                                     YBindingPath="PowerLevel"
+                                     Fill="Green"/>
+                
+            </chart:SfCartesianChart>
+            
+        </Grid>
+        <Grid Grid.Column="1">
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
+                <Button Text="Zoom-Factor" TextColor="White" FontFamily="roboto" BackgroundColor="Purple" Margin="0,0,0,10" Clicked="Button_Clicked"/>
+                <Button Text="Enable Zooming" TextColor="White" BackgroundColor="Purple"  Margin="0,0,0,10" Clicked="Button_Clicked_1"/>
+                <Button Text="Disable Zooming" TextColor="White" BackgroundColor="Purple"  Margin="0,0,0,10" Clicked="Button_Clicked_2"/>
+                <Button Text="Enable DoubleTap" TextColor="White" BackgroundColor="Purple"  Margin="0,0,0,10" Clicked="Button_Clicked_3"/>
+                <Button Text="Disable DoubleTap" TextColor="White" BackgroundColor="Purple"  Margin="0,0,0,10" Clicked="Button_Clicked_4"/>
+                <Button Text="Enable Selection-Zooming" TextColor="White" BackgroundColor="Purple"  Margin="0,0,0,10" Clicked="Button_Clicked_5"/>
+                <Button Text="Disable Selection-Zooming" TextColor="White" BackgroundColor="Purple"  Margin="0,0,0,10" Clicked="Button_Clicked_6"/>
+                <Button Text="Set Zooming Limit" TextColor="White" BackgroundColor="Purple"  Margin="0,0,0,10" Clicked="Button_Clicked_7"/>
+                <Button Text="Remove Zooming Limit" TextColor="White" BackgroundColor="Purple"  Margin="0,0,0,10" Clicked="Button_Clicked_8"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

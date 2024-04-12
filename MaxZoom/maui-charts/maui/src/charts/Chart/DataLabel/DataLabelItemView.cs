@@ -1,0 +1,56 @@
+﻿using Microsoft.Maui.Controls;
+using Microsoft.Maui;
+using Microsoft.Maui.ApplicationModel;
+
+namespace Syncfusion.Maui.Charts
+{
+    internal class DataLabelItemView : SfTemplatedView, ICustomAbsoluteView
+    {
+        public bool IsRequiredLayoutChange { get; set; } = true;
+
+        public double XPosition
+        {
+            get { return (double)GetValue(XPositionProperty); }
+
+            set { SetValue(XPositionProperty, value); }
+        }
+
+        public static readonly BindableProperty XPositionProperty =
+            BindableProperty.Create(nameof(XPosition), typeof(double), typeof(DataLabelItemView), double.NaN, BindingMode.Default, null, OnPositionChanged);
+
+        public double YPosition
+        {
+            get { return (double)GetValue(YPositionProperty); }
+            set { SetValue(YPositionProperty, value); }
+        }
+
+        public static readonly BindableProperty YPositionProperty =
+           BindableProperty.Create(nameof(YPosition), typeof(double), typeof(DataLabelItemView), double.NaN, BindingMode.Default, null, OnPositionChanged);
+
+        private static void OnPositionChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            if (bindable is DataLabelItemView view && view.Parent is Microsoft.Maui.ILayout layout)
+            {
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    view.IsRequiredLayoutChange = true;
+                    layout.InvalidateMeasure();
+                });
+            }
+        }
+
+        public override SizeRequest Measure(double widthConstraint, double heightConstraint, MeasureFlags flags = MeasureFlags.None)
+        {
+            return base.Measure(widthConstraint, heightConstraint, flags);
+        }
+    }
+
+    internal interface ICustomAbsoluteView
+    {
+        public double XPosition { get; set; }
+
+        public double YPosition { get; set; }
+
+        public bool IsRequiredLayoutChange { get; set; }
+    }
+}
