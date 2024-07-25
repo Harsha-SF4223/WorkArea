@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+xmlns:model="clr-namespace:StackingAreaMarker"
+             x:Class="StackingAreaMarker.MainPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0"/>
+        </Grid.ColumnDefinitions>
+
+        <chart:SfCartesianChart Grid.Column="0" x:Name="chart1"   >
+            <chart:SfCartesianChart.BindingContext>
+                <model:ViewModel/>
+            </chart:SfCartesianChart.BindingContext>
+
+            <chart:SfCartesianChart.XAxes>
+                <chart:CategoryAxis EdgeLabelsDrawingMode="Fit"  x:Name="axis1"/>
+            </chart:SfCartesianChart.XAxes>
+
+            <chart:SfCartesianChart.YAxes>
+                <chart:NumericalAxis x:Name="Y1" />
+
+
+            </chart:SfCartesianChart.YAxes>
+ 
+ 
+
+
+
+            <chart:StackingAreaSeries XBindingPath="Name" ItemsSource="{Binding Data1}" Label="column1" x:Name="serie1" ShowMarkers="True"     StrokeWidth="3" 
+                                      YBindingPath="Value1">
+                <chart:StackingAreaSeries.MarkerSettings>
+                    <chart:ChartMarkerSettings Fill="purple"/>
+                </chart:StackingAreaSeries.MarkerSettings>
+            </chart:StackingAreaSeries>
+
+            <chart:StackingAreaSeries XBindingPath="Name" ItemsSource="{Binding Data1}" Label="column2" x:Name="serie2" ShowMarkers="True"   StrokeWidth="3"  
+                           YBindingPath="Value2">
+                <chart:StackingAreaSeries.MarkerSettings>
+                    <chart:ChartMarkerSettings Fill="purple"/>
+                </chart:StackingAreaSeries.MarkerSettings>
+            </chart:StackingAreaSeries>
+
+
+            <chart:StackingAreaSeries XBindingPath="Name"   ShowMarkers="True"
+                                        YBindingPath="Value3"    x:Name="serie3"   Label="column3"
+                                        ItemsSource="{Binding Data1}">
+                <chart:StackingAreaSeries.MarkerSettings>
+                    <chart:ChartMarkerSettings Fill="purple"/>
+                </chart:StackingAreaSeries.MarkerSettings>
+            </chart:StackingAreaSeries>
+
+
+            <chart:StackingAreaSeries XBindingPath="Name" ItemsSource="{Binding Data1}"   ShowMarkers="True"    x:Name="serie4" Label="column4"  
+                                       YBindingPath="Value4">
+                <chart:StackingAreaSeries.MarkerSettings>
+                    <chart:ChartMarkerSettings Fill="purple"/>
+                </chart:StackingAreaSeries.MarkerSettings>
+            </chart:StackingAreaSeries>
+
+
+
+
+
+            <!--<chart:StackingAreaSeries XBindingPath="Name"   StrokeWidth="5" Fill="Orange" x:Name="serie5" Label="area4"
+                                    YBindingPath="Value4"    Opacity="1"
+                                   ItemsSource="{Binding Data1}">
+             
+         </chart:StackingAreaSeries>
+
+         <chart:StackingColumnSeries XBindingPath="Name" ItemsSource="{Binding Data1}" Label="area1" x:Name="serie6"   Fill="Purple" StrokeDashArray="10,5" StrokeWidth="3"
+                                 YBindingPath="Value2">
+
+         </chart:StackingColumnSeries>
+         <chart:StackingAreaSeries XBindingPath="Name"   StrokeWidth="5" Fill="Purple"   Label="area4"
+                         YBindingPath="Value4"    Opacity="1"
+                        ItemsSource="{Binding Data1}">
+
+         </chart:StackingAreaSeries>-->
+        </chart:SfCartesianChart>
+
+        <StackLayout Grid.Column="1">
+            <Button Text="update" Clicked="Button_Clicked1"  Grid.Column="1"/>
+           
+        </StackLayout>
+
+    </Grid>
+
+</ContentPage>

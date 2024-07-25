@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackingAreaMarker", "StackingAreaMarker\StackingAreaMarker.csproj", "{D5CD6E81-A051-465F-A0A0-FF8E5702958E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Syncfusion.Maui.Charts", "maui-charts\maui\src\charts\Syncfusion.Maui.Charts.csproj", "{5D7B92F2-F0F0-42C2-854B-A9150143D600}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Release-Xml|Any CPU = Release-Xml|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5CD6E81-A051-465F-A0A0-FF8E5702958E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5CD6E81-A051-465F-A0A0-FF8E5702958E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5CD6E81-A051-465F-A0A0-FF8E5702958E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D5CD6E81-A051-465F-A0A0-FF8E5702958E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5CD6E81-A051-465F-A0A0-FF8E5702958E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5CD6E81-A051-465F-A0A0-FF8E5702958E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D5CD6E81-A051-465F-A0A0-FF8E5702958E}.Release-Xml|Any CPU.ActiveCfg = Release|Any CPU
+		{D5CD6E81-A051-465F-A0A0-FF8E5702958E}.Release-Xml|Any CPU.Build.0 = Release|Any CPU
+		{D5CD6E81-A051-465F-A0A0-FF8E5702958E}.Release-Xml|Any CPU.Deploy.0 = Release|Any CPU
+		{5D7B92F2-F0F0-42C2-854B-A9150143D600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D7B92F2-F0F0-42C2-854B-A9150143D600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D7B92F2-F0F0-42C2-854B-A9150143D600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D7B92F2-F0F0-42C2-854B-A9150143D600}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D7B92F2-F0F0-42C2-854B-A9150143D600}.Release-Xml|Any CPU.ActiveCfg = Release-Xml|Any CPU
+		{5D7B92F2-F0F0-42C2-854B-A9150143D600}.Release-Xml|Any CPU.Build.0 = Release-Xml|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F1BB84B3-5762-4D82-B6A1-F300057CEE82}
+	EndGlobalSection
+EndGlobal
